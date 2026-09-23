@@ -3,7 +3,7 @@
 [![CI](https://github.com/LevaAverGit/soc-triage-console/actions/workflows/ci.yml/badge.svg)](https://github.com/LevaAverGit/soc-triage-console/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)
 ![Django](https://img.shields.io/badge/Django-5.1-092E20?logo=django&logoColor=white)
-![DRF](https://img.shields.io/badge/DRF-3.18-A30000?logo=django&logoColor=white)
+![DRF](https://img.shields.io/badge/DRF-3.15-A30000?logo=django&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 A small Django application for the human side of a SOC: an analyst signs in,

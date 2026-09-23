@@ -1,5 +1,10 @@
 # SOC Triage Console
 
+[![CI](https://github.com/LevaAverGit/soc-triage-console/actions/workflows/ci.yml/badge.svg)](https://github.com/LevaAverGit/soc-triage-console/actions/workflows/ci.yml)
+![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)
+![Django](https://img.shields.io/badge/Django-5.1-092E20?logo=django&logoColor=white)
+![License](https://img.shields.io/badge/License-MIT-green)
+
 A small Django application for the human side of a SOC: an analyst signs in,
 works a queue of incidents that were detected upstream, reads the alerts and
 MITRE techniques behind each one, adds notes, and moves incidents through a

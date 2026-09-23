@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+{% block title %}Incident queue — SOC Triage{% endblock %}
+{% block content %}
+<h2>Incident queue</h2>
+
+<form class="filters" method="get">
+  <label>Severity
+    <select name="severity" onchange="this.form.submit()">
+      <option value="">any</option>
+      {% for value, label in severities %}
+        <option value="{{ value }}" {% if value == active_severity %}selected{% endif %}>{{ label }}</option>
+      {% endfor %}
+    </select>
+  </label>
+  <label>Status
+    <select name="status" onchange="this.form.submit()">
+      <option value="">any</option>
+      {% for value, label in statuses %}
+        <option value="{{ value }}" {% if value == active_status %}selected{% endif %}>{{ label }}</option>
+      {% endfor %}
+    </select>
+  </label>
+  <noscript><button type="submit">Filter</button></noscript>
+</form>
+
+<div class="panel">
+  <table>
+    <thead>
+      <tr><th>Incident</th><th>Severity</th><th>Score</th><th>Status</th><th>Assignee</th><th>Title</th></tr>
+    </thead>
+    <tbody>
+      {% for incident in incidents %}
+        <tr>
+          <td><a href="{% url 'incident-detail' incident.incident_id %}">{{ incident.incident_id }}</a></td>
+          <td><span class="pill sev-{{ incident.severity }}">{{ incident.get_severity_display }}</span></td>
+          <td>{{ incident.score }}</td>
+          <td class="status">{{ incident.get_status_display }}</td>
+          <td class="muted">{{ incident.assignee.username|default:"—" }}</td>
+          <td>{{ incident.title }}</td>
+        </tr>
+      {% empty %}
+        <tr><td colspan="6" class="muted">No incidents. Run <code>manage.py sync_from_siem</code> to load some.</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+{% if is_paginated %}
+  <div class="muted">
+    {% if page_obj.has_previous %}<a href="?page={{ page_obj.previous_page_number }}">← prev</a>{% endif %}
+    Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}
+    {% if page_obj.has_next %}<a href="?page={{ page_obj.next_page_number }}">next →</a>{% endif %}
+  </div>
+{% endif %}
+{% endblock %}

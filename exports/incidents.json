@@ -1,0 +1,898 @@
+[
+  {
+    "incident_id": "INC-0003",
+    "title": "Critical Incident — 203.0.113.99",
+    "severity": "critical",
+    "score": 100,
+    "status": "open",
+    "summary": "Critical severity incident involving 18 alert(s) from IP(s): 203.0.113.99. Rules triggered: DB_AUTH_BRUTE_FORCE, DB_BRUTE_FORCE_SUCCESS, DB_PRIVILEGE_CHANGE, MULTI_SOURCE_SUSPICIOUS_IP, SENSITIVE_PATH_ACCESS, SSH_BRUTE_FORCE, SSH_BRUTE_FORCE_SUCCESS, SUSPICIOUS_USER_AGENT, WEB_EXPLOIT_ATTEMPT.",
+    "source_ips": [
+      "203.0.113.99"
+    ],
+    "created_at": "2026-09-17T11:52:54.830030+00:00",
+    "alerts": [
+      {
+        "rule_id": "MULTI_SOURCE_SUSPICIOUS_IP",
+        "rule_name": "Multi-Source Suspicious IP",
+        "severity": "critical",
+        "mitre_technique_id": "Multiple"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "high",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SENSITIVE_PATH_ACCESS",
+        "rule_name": "Sensitive Path Access",
+        "severity": "medium",
+        "mitre_technique_id": "T1083"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "high",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "WEB_EXPLOIT_ATTEMPT",
+        "rule_name": "Web Exploit Attempt",
+        "severity": "high",
+        "mitre_technique_id": "T1190"
+      },
+      {
+        "rule_id": "DB_BRUTE_FORCE_SUCCESS",
+        "rule_name": "Successful Database Login After Brute Force",
+        "severity": "critical",
+        "mitre_technique_id": "T1078"
+      },
+      {
+        "rule_id": "SSH_BRUTE_FORCE",
+        "rule_name": "SSH Brute Force",
+        "severity": "high",
+        "mitre_technique_id": "T1110.001"
+      },
+      {
+        "rule_id": "DB_PRIVILEGE_CHANGE",
+        "rule_name": "Database Privilege or Role Change",
+        "severity": "critical",
+        "mitre_technique_id": "T1098"
+      },
+      {
+        "rule_id": "WEB_EXPLOIT_ATTEMPT",
+        "rule_name": "Web Exploit Attempt",
+        "severity": "high",
+        "mitre_technique_id": "T1190"
+      },
+      {
+        "rule_id": "WEB_EXPLOIT_ATTEMPT",
+        "rule_name": "Web Exploit Attempt",
+        "severity": "high",
+        "mitre_technique_id": "T1190"
+      },
+      {
+        "rule_id": "DB_AUTH_BRUTE_FORCE",
+        "rule_name": "Database Authentication Brute Force",
+        "severity": "medium",
+        "mitre_technique_id": "T1110.001"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "high",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SSH_BRUTE_FORCE_SUCCESS",
+        "rule_name": "Successful Login After SSH Brute Force",
+        "severity": "critical",
+        "mitre_technique_id": "T1078"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "WEB_EXPLOIT_ATTEMPT",
+        "rule_name": "Web Exploit Attempt",
+        "severity": "high",
+        "mitre_technique_id": "T1190"
+      },
+      {
+        "rule_id": "WEB_EXPLOIT_ATTEMPT",
+        "rule_name": "Web Exploit Attempt",
+        "severity": "high",
+        "mitre_technique_id": "T1190"
+      },
+      {
+        "rule_id": "DB_PRIVILEGE_CHANGE",
+        "rule_name": "Database Privilege or Role Change",
+        "severity": "critical",
+        "mitre_technique_id": "T1098"
+      },
+      {
+        "rule_id": "WEB_EXPLOIT_ATTEMPT",
+        "rule_name": "Web Exploit Attempt",
+        "severity": "high",
+        "mitre_technique_id": "T1190"
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-0008",
+    "title": "Critical Incident — 203.0.113.10",
+    "severity": "critical",
+    "score": 100,
+    "status": "open",
+    "summary": "Critical severity incident involving 3 alert(s) from IP(s): 203.0.113.10. Rules triggered: CLOUD_SG_OPEN.",
+    "source_ips": [
+      "203.0.113.10"
+    ],
+    "created_at": "2026-09-17T11:52:54.830551+00:00",
+    "alerts": [
+      {
+        "rule_id": "CLOUD_SG_OPEN",
+        "rule_name": "Cloud Security Group Opened to 0.0.0.0/0",
+        "severity": "critical",
+        "mitre_technique_id": "T1562.007"
+      },
+      {
+        "rule_id": "CLOUD_SG_OPEN",
+        "rule_name": "Cloud Security Group Opened to 0.0.0.0/0",
+        "severity": "high",
+        "mitre_technique_id": "T1562.007"
+      },
+      {
+        "rule_id": "CLOUD_SG_OPEN",
+        "rule_name": "Cloud Security Group Opened to 0.0.0.0/0",
+        "severity": "high",
+        "mitre_technique_id": "T1562.007"
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-0005",
+    "title": "High Incident — 198.51.100.77",
+    "severity": "high",
+    "score": 100,
+    "status": "open",
+    "summary": "High severity incident involving 91 alert(s) from IP(s): 198.51.100.77. Rules triggered: SUSPICIOUS_USER_AGENT, WEB_DIR_SCAN.",
+    "source_ips": [
+      "198.51.100.77"
+    ],
+    "created_at": "2026-09-17T11:52:54.830410+00:00",
+    "alerts": [
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "WEB_DIR_SCAN",
+        "rule_name": "Web Directory Scanning",
+        "severity": "high",
+        "mitre_technique_id": "T1595.002"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "medium",
+        "mitre_technique_id": "T1595"
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-0006",
+    "title": "High Incident — 203.0.113.50",
+    "severity": "high",
+    "score": 100,
+    "status": "open",
+    "summary": "High severity incident involving 8 alert(s) from IP(s): 203.0.113.50. Rules triggered: SENSITIVE_PATH_ACCESS, SUSPICIOUS_USER_AGENT.",
+    "source_ips": [
+      "203.0.113.50"
+    ],
+    "created_at": "2026-09-17T11:52:54.830463+00:00",
+    "alerts": [
+      {
+        "rule_id": "SENSITIVE_PATH_ACCESS",
+        "rule_name": "Sensitive Path Access",
+        "severity": "medium",
+        "mitre_technique_id": "T1083"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "high",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "high",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SENSITIVE_PATH_ACCESS",
+        "rule_name": "Sensitive Path Access",
+        "severity": "high",
+        "mitre_technique_id": "T1083"
+      },
+      {
+        "rule_id": "SENSITIVE_PATH_ACCESS",
+        "rule_name": "Sensitive Path Access",
+        "severity": "medium",
+        "mitre_technique_id": "T1083"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "high",
+        "mitre_technique_id": "T1595"
+      },
+      {
+        "rule_id": "SENSITIVE_PATH_ACCESS",
+        "rule_name": "Sensitive Path Access",
+        "severity": "high",
+        "mitre_technique_id": "T1083"
+      },
+      {
+        "rule_id": "SUSPICIOUS_USER_AGENT",
+        "rule_name": "Suspicious Scanner User Agent",
+        "severity": "high",
+        "mitre_technique_id": "T1595"
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-0009",
+    "title": "High Incident — 198.51.100.30",
+    "severity": "high",
+    "score": 85,
+    "status": "open",
+    "summary": "High severity incident involving 1 alert(s) from IP(s): 198.51.100.30. Rules triggered: CLOUD_IAM_CHANGE_AFTER_FAILURE.",
+    "source_ips": [
+      "198.51.100.30"
+    ],
+    "created_at": "2026-09-17T11:52:54.830600+00:00",
+    "alerts": [
+      {
+        "rule_id": "CLOUD_IAM_CHANGE_AFTER_FAILURE",
+        "rule_name": "IAM Policy Changed After Console Login Failure",
+        "severity": "high",
+        "mitre_technique_id": "T1098"
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-0007",
+    "title": "High Incident — 192.0.2.150",
+    "severity": "high",
+    "score": 80,
+    "status": "open",
+    "summary": "High severity incident involving 1 alert(s) from IP(s): 192.0.2.150. Rules triggered: WIN_ACCOUNT_CREATED_AFTER_FAILURES.",
+    "source_ips": [
+      "192.0.2.150"
+    ],
+    "created_at": "2026-09-17T11:52:54.830510+00:00",
+    "alerts": [
+      {
+        "rule_id": "WIN_ACCOUNT_CREATED_AFTER_FAILURES",
+        "rule_name": "Windows Account Created After Failed Logons",
+        "severity": "high",
+        "mitre_technique_id": "T1136.001"
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-0010",
+    "title": "High Incident — 192.0.2.50",
+    "severity": "high",
+    "score": 80,
+    "status": "open",
+    "summary": "High severity incident involving 1 alert(s) from IP(s): 192.0.2.50. Rules triggered: DB_PRIVILEGE_CHANGE.",
+    "source_ips": [
+      "192.0.2.50"
+    ],
+    "created_at": "2026-09-17T11:52:54.830641+00:00",
+    "alerts": [
+      {
+        "rule_id": "DB_PRIVILEGE_CHANGE",
+        "rule_name": "Database Privilege or Role Change",
+        "severity": "high",
+        "mitre_technique_id": "T1098"
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-0001",
+    "title": "Medium Incident — 192.0.2.100",
+    "severity": "medium",
+    "score": 40,
+    "status": "open",
+    "summary": "Medium severity incident involving 1 alert(s) from IP(s): 192.0.2.100. Rules triggered: SSH_BRUTE_FORCE.",
+    "source_ips": [
+      "192.0.2.100"
+    ],
+    "created_at": "2026-09-17T11:52:54.829192+00:00",
+    "alerts": [
+      {
+        "rule_id": "SSH_BRUTE_FORCE",
+        "rule_name": "SSH Brute Force",
+        "severity": "medium",
+        "mitre_technique_id": "T1110.001"
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-0002",
+    "title": "Medium Incident — 198.51.100.50",
+    "severity": "medium",
+    "score": 40,
+    "status": "open",
+    "summary": "Medium severity incident involving 1 alert(s) from IP(s): 198.51.100.50. Rules triggered: SSH_BRUTE_FORCE.",
+    "source_ips": [
+      "198.51.100.50"
+    ],
+    "created_at": "2026-09-17T11:52:54.829269+00:00",
+    "alerts": [
+      {
+        "rule_id": "SSH_BRUTE_FORCE",
+        "rule_name": "SSH Brute Force",
+        "severity": "medium",
+        "mitre_technique_id": "T1110.001"
+      }
+    ]
+  },
+  {
+    "incident_id": "INC-0004",
+    "title": "Medium Incident — 192.0.2.200",
+    "severity": "medium",
+    "score": 40,
+    "status": "open",
+    "summary": "Medium severity incident involving 1 alert(s) from IP(s): 192.0.2.200. Rules triggered: WEB_DIR_SCAN.",
+    "source_ips": [
+      "192.0.2.200"
+    ],
+    "created_at": "2026-09-17T11:52:54.830114+00:00",
+    "alerts": [
+      {
+        "rule_id": "WEB_DIR_SCAN",
+        "rule_name": "Web Directory Scanning",
+        "severity": "medium",
+        "mitre_technique_id": "T1595.002"
+      }
+    ]
+  }
+]

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Sign in — SOC Triage{% endblock %}
+{% block content %}
+<div class="panel" style="max-width:360px; margin:40px auto;">
+  <h2>Sign in</h2>
+  {% if form.errors %}<div class="msg error">Wrong username or password.</div>{% endif %}
+  <form method="post">
+    {% csrf_token %}
+    <p><label>Username<br><input type="text" name="username" autofocus style="width:100%"></label></p>
+    <p><label>Password<br><input type="password" name="password" style="width:100%"></label></p>
+    <button type="submit">Sign in</button>
+    <input type="hidden" name="next" value="{{ next }}">
+  </form>
+</div>
+{% endblock %}

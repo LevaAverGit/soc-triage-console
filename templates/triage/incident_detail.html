@@ -1,0 +1,94 @@
+{% extends "base.html" %}
+{% block title %}{{ incident.incident_id }} — SOC Triage{% endblock %}
+{% block content %}
+<p><a href="{% url 'incident-list' %}">← queue</a></p>
+<h2>{{ incident.incident_id }}
+  <span class="pill sev-{{ incident.severity }}">{{ incident.get_severity_display }}</span>
+  <span class="status">{{ incident.get_status_display }}</span>
+</h2>
+<p class="muted">{{ incident.title }}</p>
+
+<div class="grid2">
+  <div class="panel">
+    <h3>Summary</h3>
+    <p>{{ incident.summary|default:"—" }}</p>
+    <table>
+      <tr><th>Score</th><td>{{ incident.score }}/100</td></tr>
+      <tr><th>Created</th><td>{{ incident.created_at }}</td></tr>
+      <tr><th>Source IPs</th><td>{{ incident.source_ips|join:", "|default:"—" }}</td></tr>
+      <tr><th>Assignee</th><td>{{ incident.assignee.username|default:"—" }}</td></tr>
+    </table>
+    <form action="{% url 'incident-assign' incident.incident_id %}" method="post">
+      {% csrf_token %}
+      {% if incident.assignee == request.user %}
+        <button type="submit" name="action" value="release">Release</button>
+        <span class="muted">Assigned to you.</span>
+      {% else %}
+        <button type="submit" name="action" value="take">Assign to me</button>
+      {% endif %}
+    </form>
+  </div>
+
+  <div class="panel">
+    <h3>Status</h3>
+    {% if targets %}
+      <form action="{% url 'incident-status' incident.incident_id %}" method="post">
+        {% csrf_token %}
+        <select name="to_status">
+          {% for t in targets %}<option value="{{ t }}">{{ t }}</option>{% endfor %}
+        </select>
+        <button type="submit">Change status</button>
+      </form>
+      <p class="muted">Allowed from “{{ incident.get_status_display }}” for your role.</p>
+    {% else %}
+      <p class="muted">No status change available to you from “{{ incident.get_status_display }}”.</p>
+    {% endif %}
+  </div>
+</div>
+
+<div class="panel">
+  <h3>Alerts ({{ incident.alerts.count }})</h3>
+  <table>
+    <thead><tr><th>Rule</th><th>Name</th><th>Severity</th><th>Technique</th></tr></thead>
+    <tbody>
+      {% for a in incident.alerts.all %}
+        <tr><td>{{ a.rule_id }}</td><td>{{ a.rule_name }}</td>
+            <td><span class="pill sev-{{ a.severity }}">{{ a.severity }}</span></td>
+            <td class="muted">{{ a.mitre_technique_id|default:"—" }}</td></tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</div>
+
+<div class="grid2">
+  <div class="panel">
+    <h3>Notes</h3>
+    {% for n in notes %}
+      <p><strong>{{ n.author.username|default:"—" }}</strong>
+         <span class="muted">{{ n.created_at }}</span><br>{{ n.body }}</p>
+    {% empty %}
+      <p class="muted">No notes yet.</p>
+    {% endfor %}
+    <form action="{% url 'incident-note' incident.incident_id %}" method="post">
+      {% csrf_token %}
+      <textarea name="body" rows="2" style="width:100%" placeholder="Add a note…"></textarea>
+      <button type="submit">Add note</button>
+    </form>
+  </div>
+
+  <div class="panel">
+    <h3>Audit trail</h3>
+    <table>
+      <thead><tr><th>When</th><th>Actor</th><th>Change</th></tr></thead>
+      <tbody>
+        {% for e in audit %}
+          <tr><td class="muted">{{ e.at }}</td><td>{{ e.actor.username|default:"—" }}</td>
+              <td>{{ e.from_status }} → {{ e.to_status }}</td></tr>
+        {% empty %}
+          <tr><td colspan="3" class="muted">No status changes yet.</td></tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}SOC Triage{% endblock %}</title>
+  <style>
+    :root { --bg:#0f1319; --panel:#1a212b; --line:#2a3543; --text:#e6eaf0; --muted:#8a97a8;
+            --critical:#e5484d; --high:#f5a623; --medium:#e8c200; --low:#3fb950; --accent:#4a90d9; }
+    * { box-sizing: border-box; }
+    body { margin:0; background:var(--bg); color:var(--text);
+           font:14px/1.5 -apple-system,"Segoe UI",Roboto,Arial,sans-serif; }
+    a { color:var(--accent); text-decoration:none; } a:hover { text-decoration:underline; }
+    header { display:flex; align-items:center; gap:16px; padding:12px 20px;
+             background:var(--panel); border-bottom:1px solid var(--line); }
+    header .brand { font-weight:600; letter-spacing:.3px; }
+    header .spacer { flex:1; }
+    header .who { color:var(--muted); }
+    main { padding:20px; max-width:1080px; margin:0 auto; }
+    table { width:100%; border-collapse:collapse; }
+    th, td { text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); }
+    th { color:var(--muted); font-weight:600; font-size:12px; text-transform:uppercase; letter-spacing:.4px; }
+    .pill { display:inline-block; padding:1px 8px; border-radius:10px; font-size:12px; font-weight:600; color:#0f1319; }
+    .sev-critical { background:var(--critical); color:#fff; } .sev-high { background:var(--high); }
+    .sev-medium { background:var(--medium); } .sev-low { background:var(--low); color:#0f1319; }
+    .status { color:var(--muted); }
+    .panel { background:var(--panel); border:1px solid var(--line); border-radius:8px; padding:16px; margin-bottom:16px; }
+    .filters { display:flex; gap:10px; margin-bottom:16px; align-items:center; }
+    select, input[type=text], textarea, button {
+      background:#0f1319; color:var(--text); border:1px solid var(--line); border-radius:6px; padding:6px 10px; font:inherit; }
+    button { background:var(--accent); color:#fff; border:none; cursor:pointer; }
+    button:hover { filter:brightness(1.1); }
+    .msg { padding:8px 12px; border-radius:6px; margin-bottom:8px; }
+    .msg.success { background:#12331d; border:1px solid var(--low); }
+    .msg.error { background:#3a1416; border:1px solid var(--critical); }
+    .muted { color:var(--muted); }
+    .grid2 { display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+    @media (max-width:720px){ .grid2 { grid-template-columns:1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <span class="brand">SOC Triage</span>
+    <a href="{% url 'incident-list' %}">Queue</a>
+    <span class="spacer"></span>
+    {% if user.is_authenticated %}
+      <span class="who">{{ user.username }}{% if user.groups.all %} ({{ user.groups.all|join:", " }}){% endif %}</span>
+      <form action="{% url 'logout' %}" method="post" style="margin:0">{% csrf_token %}<button type="submit">Sign out</button></form>
+    {% endif %}
+  </header>
+  <main>
+    {% for message in messages %}
+      <div class="msg {{ message.tags }}">{{ message }}</div>
+    {% endfor %}
+    {% block content %}{% endblock %}
+  </main>
+</body>
+</html>

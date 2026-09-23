@@ -99,3 +99,27 @@ class AuditEntry(models.Model):
 
     def __str__(self) -> str:
         return f"{self.incident.incident_id}: {self.from_status} -> {self.to_status}"
+
+
+def _attachment_upload_to(instance: "Attachment", filename: str) -> str:
+    return f"attachments/{instance.incident.incident_id}/{filename}"
+
+
+class Attachment(models.Model):
+    """An evidence file an analyst attaches to an incident (pcap, screenshot, log)."""
+
+    incident = models.ForeignKey(
+        Incident, related_name="attachments", on_delete=models.CASCADE
+    )
+    file = models.FileField(upload_to=_attachment_upload_to)
+    original_name = models.CharField(max_length=255)
+    uploaded_by = models.ForeignKey(
+        settings.AUTH_USER_MODEL, null=True, on_delete=models.SET_NULL
+    )
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ["-uploaded_at"]
+
+    def __str__(self) -> str:
+        return self.original_name

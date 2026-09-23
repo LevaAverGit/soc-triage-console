@@ -7,7 +7,7 @@ read-only, because the whole point of that model is that nobody edits history.
 
 from django.contrib import admin
 
-from .models import Alert, AuditEntry, Incident, TriageNote
+from .models import Alert, Attachment, AuditEntry, Incident, TriageNote
 
 
 class AlertInline(admin.TabularInline):
@@ -48,3 +48,10 @@ class AuditEntryAdmin(admin.ModelAdmin):
 
 
 admin.site.register(TriageNote)
+
+
+@admin.register(Attachment)
+class AttachmentAdmin(admin.ModelAdmin):
+    list_display = ("original_name", "incident", "uploaded_by", "uploaded_at")
+    list_filter = ("uploaded_at",)
+    readonly_fields = ("uploaded_at",)

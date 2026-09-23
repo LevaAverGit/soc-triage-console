@@ -8,4 +8,5 @@ urlpatterns = [
     path("incident/<str:incident_id>/status/", views.change_status, name="incident-status"),
     path("incident/<str:incident_id>/assign/", views.assign, name="incident-assign"),
     path("incident/<str:incident_id>/note/", views.add_note, name="incident-note"),
+    path("incident/<str:incident_id>/attach/", views.upload_attachment, name="incident-attach"),
 ]

@@ -16,8 +16,10 @@ from django.core.paginator import Paginator
 from django.shortcuts import get_object_or_404, redirect, render
 from django.views.generic import DetailView, ListView
 
-from .models import AuditEntry, Incident, TriageNote
+from .models import Attachment, AuditEntry, Incident, TriageNote
 from .transitions import allowed_targets, can_transition
+
+MAX_ATTACHMENT_BYTES = 10 * 1024 * 1024  # 10 MB
 
 
 class IncidentListView(LoginRequiredMixin, ListView):
@@ -59,6 +61,7 @@ class IncidentDetailView(LoginRequiredMixin, DetailView):
         ctx["targets"] = allowed_targets(self.request.user, self.object.status)
         ctx["notes"] = self.object.notes.select_related("author")
         ctx["audit"] = self.object.audit.select_related("actor")
+        ctx["attachments"] = self.object.attachments.select_related("uploaded_by")
         return ctx
 
 
@@ -115,6 +118,27 @@ def assign(request, incident_id):
             incident.assignee = None
             incident.save(update_fields=["assignee", "synced_at"])
             messages.success(request, f"{incident.incident_id} released.")
+    return redirect("incident-detail", incident_id=incident_id)
+
+
+@login_required
+def upload_attachment(request, incident_id):
+    """Attach an evidence file (pcap, screenshot, log) to an incident."""
+    incident = get_object_or_404(Incident, incident_id=incident_id)
+    if request.method == "POST":
+        upload = request.FILES.get("file")
+        if upload is None:
+            messages.error(request, "No file selected.")
+        elif upload.size > MAX_ATTACHMENT_BYTES:
+            messages.error(request, "File too large (max 10 MB).")
+        else:
+            Attachment.objects.create(
+                incident=incident,
+                file=upload,
+                original_name=upload.name[:255],
+                uploaded_by=request.user,
+            )
+            messages.success(request, f"Attached {upload.name}.")
     return redirect("incident-detail", incident_id=incident_id)
 
 

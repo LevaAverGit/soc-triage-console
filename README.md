@@ -3,6 +3,7 @@
 [![CI](https://github.com/LevaAverGit/soc-triage-console/actions/workflows/ci.yml/badge.svg)](https://github.com/LevaAverGit/soc-triage-console/actions/workflows/ci.yml)
 ![Python](https://img.shields.io/badge/Python-3.11-3776AB?logo=python&logoColor=white)
 ![Django](https://img.shields.io/badge/Django-5.1-092E20?logo=django&logoColor=white)
+![DRF](https://img.shields.io/badge/DRF-3.18-A30000?logo=django&logoColor=white)
 ![License](https://img.shields.io/badge/License-MIT-green)
 
 A small Django application for the human side of a SOC: an analyst signs in,
@@ -102,31 +103,38 @@ separate from the command, so it is unit-tested without a live SIEM.
 ```
 config/            project settings, root URLs, auth (login/logout) wiring
 triage/
-  models.py        Incident, Alert, TriageNote, AuditEntry
+  models.py        Incident, Alert, TriageNote, AuditEntry, Attachment
   transitions.py   the role-based transition table + permission checks
   views.py         login-gated queue (ListView), detail (DetailView),
-                   status change + add-note (function views)
+                   status change / note / assign / file upload (function views)
+  serializers.py   DRF serializers for the read-only API
+  api.py           read-only REST API: incidents + metrics
   ingest.py        upsert incidents/alerts from SIEM records
   admin.py         SOC-lead admin; audit entries read-only
   management/commands/
     sync_from_siem.py   load incidents from --file or --url
     bootstrap_demo.py   one-command demo: roles, users, sample data
-  tests/           transitions, ingest, views, commands, models
+  tests/           transitions, ingest, views, api, attachments, commands, models
 templates/         dark SOC theme: queue, incident detail, login
 ```
 
 ### What it demonstrates
 
-- **Data modelling & migrations** — four related models, a JSON field, choices,
-  meaningful `Meta.ordering`, an append-only audit model.
+- **Data modelling & migrations** — five related models, a JSON field, choices,
+  meaningful `Meta.ordering`, an append-only audit model, a file field.
 - **Class-based and function views** — `ListView`/`DetailView` for read paths,
-  function views for the two write actions.
+  function views for the write actions (status, note, assign, evidence upload).
 - **Authorisation done properly** — permission logic isolated in one module and
   enforced server-side; the UI reflects it rather than defining it. A test
   crafts a forbidden POST directly to prove the button is not the control.
+- **REST API (Django REST Framework)** — a read-only, authenticated, paginated
+  API for incidents (with filtering) and a metrics endpoint, so external systems
+  consume the data while triage actions stay in the UI. ([api.py](triage/api.py))
+- **File upload** — analysts attach evidence files to an incident, stored under
+  `MEDIA_ROOT`, size-limited, shown on the detail page.
 - **Django admin** as a real operator tool, with history made read-only.
 - **Management commands** for sync and demo bootstrap.
-- **REST integration** — `httpx` fetch of a SIEM export, with the parsing logic
+- **Upstream REST sync** — `httpx` fetch of a SIEM export, with the parsing logic
   kept testable in isolation.
 
 ## Tests
@@ -135,13 +143,14 @@ templates/         dark SOC theme: queue, incident detail, login
 python manage.py test
 ```
 
-42 tests cover the transition rules (including that an L1 cannot close an
+51 tests cover the transition rules (including that an L1 cannot close an
 escalated incident, by table logic *and* by direct POST), the ingest upsert,
 status-preservation and its handling of malformed upstream data (a bad record is
 skipped, not fatal), the SIEM sync command over both `--file` and a mocked
 `--url` REST fetch plus each of its error paths, view access control, filtering,
-the take/release assignment, and the demo bootstrap. CI runs the suite plus
-`manage.py check` and a migration-drift check on every push — see
+the take/release assignment, the read-only REST API (auth, filtering, metrics),
+evidence upload (login-gated, size-limited), and the demo bootstrap. CI runs the
+suite plus `manage.py check` and a migration-drift check on every push — see
 [`.github/workflows/ci.yml`](.github/workflows/ci.yml).
 
 ## License
